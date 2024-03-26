@@ -9,5 +9,5 @@ jobs:
       run: echo hello world
     - name: step2
       run: |
-        hi world
+        echo hi world
         echo hello world
