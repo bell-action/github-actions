@@ -1,0 +1,30 @@
+name: needs
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "1, world!"
+  job2:
+    runs-on: ubuntu-latest
+    needs: [job1]
+    steps:
+      - name: echo
+        run: echo "2, world!"
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo "3, world!"
+          exit 1
+  job4:
+    runs-on: ubuntu-latest
+    needs: [job3]
+    steps:
+      - name: echo
+        run: |
+          echo "3, world!"
+          exit 1
