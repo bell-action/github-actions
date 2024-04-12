@@ -1,7 +1,6 @@
 name: cicd-1
 on:
-  pull_request:
-    types: [ opened, synchronize, closed ]
+  push:
     branches: [ dev ]
     paths:
       - 'my-app/**'
@@ -34,7 +33,6 @@ jobs:
           npm run build
 
   image-build:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       id-token: write
